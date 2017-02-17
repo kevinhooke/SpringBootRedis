@@ -13,7 +13,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-public class DemoApplication {
+public class SpringBootRedisApplication {
 
 	@Bean
 	JedisConnectionFactory jedisConnectionFactory() {
@@ -42,6 +42,6 @@ public class DemoApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(SpringBootRedisApplication.class, args);
 	}
 }
