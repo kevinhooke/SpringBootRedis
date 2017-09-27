@@ -1,6 +1,7 @@
 package kh.springboot.redis;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +16,14 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableAutoConfiguration
 public class SpringBootRedisApplication {
 
+	@Value("${redis.servername}")
+	private String redisServiceName;
+	
 	@Bean
 	JedisConnectionFactory jedisConnectionFactory() {
-		return new JedisConnectionFactory();
+		JedisConnectionFactory connFactory = new JedisConnectionFactory();
+		connFactory.setHostName(this.redisServiceName);
+		return connFactory;
 	}
 
 	@Bean

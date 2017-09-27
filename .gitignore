@@ -23,3 +23,5 @@ dist/
 nbdist/
 .nb-gradle/
 /SpringBootRedisRest.zip
+
+.DS_Store
